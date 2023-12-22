@@ -101,9 +101,12 @@ module button_support_platform(
 ) {
     $fn = 60;
     clearance = 0.1;
+    
+    main_plate_height = pcb_height/3;
     union() {
 
-        cube([pcb_width, pcb_height, pcb_thickness + 0.5]);
+        translate([0,main_plate_height,0])
+        cube([pcb_width, (pcb_height - main_plate_height), pcb_thickness + 0.5]);
         
         // bottom left big connector
         translate([4.25,43,0.5])
@@ -126,6 +129,14 @@ module button_support_platform(
        translate([56.75,38.5,pcb_thickness])
                 cylinder(pcb_thickness+1, small_hole_radius - clearance, small_hole_radius - clearance);
                 
+        
+        // up left addittion
+        translate([0,55,0])
+            cube([pcb_width/4, pcb_height/4, pcb_thickness + 0.5]);
+       
+        // up right addition
+        translate([86.25,55,0])
+            cube([pcb_width/4, pcb_height/4, pcb_thickness + 0.5]);
        
     }
     
@@ -145,7 +156,6 @@ module screw_hole_cylinder (height, outside_radius, wall_thickness) {
 module silent_switch (){
     $fn = 60;
     throng_height = 3.3;
-//        throng_width_wide = 1.3;
     throng_width = 1.1;
     throng_thickness = 0.25;
     throng_distance = 5;
@@ -178,8 +188,61 @@ module silent_switch (){
     }
 }
 
-translate([0,0,20])
+switch_offset_x_directions = 20;
+switch_offset_distance = 15;
+
+// Right button switch
+rotate([180,0,0])
+translate([switch_offset_x_directions,-(2*switch_offset_distance),1.5])
 silent_switch();
+
+// Down button switch
+rotate([180,0,0])
+translate([switch_offset_x_directions,-(1*switch_offset_distance),1.5])
+silent_switch();
+
+// Left button switch
+rotate([180,0,0])
+translate([switch_offset_x_directions,-(0*switch_offset_distance),1.5])
+silent_switch();
+
+switch_offset_x_attacks = 90;
+
+// LP button switch
+rotate([180,0,0])
+translate([switch_offset_x_attacks,-(2*switch_offset_distance),1.5])
+silent_switch();
+
+// MP button switch
+rotate([180,0,0])
+translate([switch_offset_x_attacks,-(1*switch_offset_distance),1.5])
+silent_switch();
+
+// HP button switch
+rotate([180,0,0])
+translate([switch_offset_x_attacks,-(0*switch_offset_distance),1.5])
+silent_switch();
+
+
+// LK button switch
+rotate([180,0,0])
+translate([switch_offset_x_attacks+switch_offset_distance,-(2*switch_offset_distance),1.5])
+silent_switch();
+
+
+// MK button switch
+rotate([180,0,0])
+translate([switch_offset_x_attacks+switch_offset_distance,-(1*switch_offset_distance),1.5])
+silent_switch();
+
+
+// HK button switch
+rotate([180,0,0])
+translate([switch_offset_x_attacks+switch_offset_distance,-(0*switch_offset_distance),1.5])
+silent_switch();
+
+
+
 
 pcb_thickness = 1.5;
 
@@ -188,7 +251,7 @@ PCB(
     small_hole_radius=1, 
     PCB_thickness=pcb_thickness);
 
-translate([0.75,-35,-pcb_thickness])  
+translate([0.75,-35,-(pcb_thickness+0.5)])  
     button_support_platform(
         pcb_width=115, 
         pcb_height=56.5, 
