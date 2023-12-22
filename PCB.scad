@@ -109,27 +109,30 @@ module button_support_platform(
         cube([pcb_width, (pcb_height - main_plate_height), pcb_thickness + 0.5]);
         
         // bottom left big connector
-        translate([4.25,43,0.5])
-            screw_hole_cylinder(pcb_thickness + 2, big_hole_radius - clearance, 0.2);
+        translate([4.25,43,-1.5])
+            screw_hole_cylinder(pcb_thickness + 5, big_hole_radius - clearance, 0.2);
+       
         
         // middle big connector
-        translate([56.75,52.5,0.5])
-            screw_hole_cylinder(pcb_thickness + 2, big_hole_radius - clearance, 0.2);
+        translate([56.75,52.5,-1.5])
+            screw_hole_cylinder(pcb_thickness + 5, big_hole_radius - clearance, 0.2);
         
         // right big connector
-        translate([104.25,43,0.5])
-            screw_hole_cylinder(pcb_thickness + 2, big_hole_radius - clearance, 0.2);
-     
+        translate([104.25,43,-1.5])
+            screw_hole_cylinder(pcb_thickness + 5, big_hole_radius - clearance, 0.2);
+        
+        // extra big connector
+        translate([56.75,25,-1.5])
+            screw_hole_cylinder(pcb_thickness + 5, big_hole_radius - clearance, 0.2);
        
-       // left (dpad) small connector
-       translate([24.25,50,pcb_thickness])
+        // left (dpad) small connector
+        translate([24.25,50,pcb_thickness])
                 cylinder(pcb_thickness+1, small_hole_radius - clearance, small_hole_radius - clearance);
             
-       // middle (dpad) small connector
-       translate([56.75,38.5,pcb_thickness])
+        // middle (dpad) small connector
+        translate([56.75,38.5,pcb_thickness])
                 cylinder(pcb_thickness+1, small_hole_radius - clearance, small_hole_radius - clearance);
                 
-        
         // up left addittion
         translate([0,55,0])
             cube([pcb_width/4, pcb_height/4, pcb_thickness + 0.5]);
@@ -143,11 +146,11 @@ module button_support_platform(
 }
 
 module screw_hole_cylinder (height, outside_radius, wall_thickness) {
-    clearance_height = 1;
+    clearance_height = 2;
      
     difference(){
         cylinder(height, outside_radius, outside_radius);
-        translate([0,0,0])
+        translate([0,0,-1])
         #cylinder(height + clearance_height, outside_radius - wall_thickness, outside_radius - wall_thickness);
     }
 }
@@ -188,6 +191,39 @@ module silent_switch (){
     }
 }
 
+module top_shell(
+    pcb_width,
+    pcb_height,
+    pcb_thickness) {
+        
+    main_plate_height = pcb_height/3;
+    width_overhang = 9;
+    height_overhang = 9;
+    shell_thickness = 10;
+    shell_strength = 5;
+    
+    cube_height = pcb_width+(2*width_overhang);
+    cube_width = pcb_height + main_plate_height + height_overhang*2;
+        
+    color("pink") {  
+        difference(){
+        
+            
+            translate([-width_overhang,-(main_plate_height+height_overhang),pcb_thickness])
+                cube([
+                        cube_height, 
+                        cube_width, 
+                        shell_thickness]);
+        
+            translate([-(width_overhang-shell_strength/2),-(main_plate_height+height_overhang)+shell_strength/2,pcb_thickness])
+                cube([
+                        cube_height-shell_strength, 
+                        cube_width-shell_strength, 
+                        shell_thickness-shell_strength]);
+        }
+    }
+}
+
 switch_offset_x_directions = 20;
 switch_offset_distance = 15;
 
@@ -206,7 +242,7 @@ rotate([180,0,0])
 translate([switch_offset_x_directions,-(0*switch_offset_distance),1.5])
 silent_switch();
 
-switch_offset_x_attacks = 90;
+switch_offset_x_attacks = 80;
 
 // LP button switch
 rotate([180,0,0])
@@ -242,19 +278,53 @@ translate([switch_offset_x_attacks+switch_offset_distance,-(0*switch_offset_dist
 silent_switch();
 
 
+// right face button switch
+translate([switch_offset_x_attacks+switch_offset_distance - 11,(2*switch_offset_distance)-15,1.5])
+silent_switch();
 
 
-pcb_thickness = 1.5;
+// right face button switch
+translate([switch_offset_x_attacks+switch_offset_distance - 3,2*(switch_offset_distance)-8,1.5])
+silent_switch();
+
+
+// right face button switch
+translate([switch_offset_x_attacks+switch_offset_distance - 14,5,1.5])
+silent_switch();
+
+
+// left face button switch
+translate([switch_offset_x_directions - 6, (2*switch_offset_distance)-15,1.5])
+silent_switch();
+
+
+// left face button switch
+translate([switch_offset_x_directions - 14, 2*(switch_offset_distance)-8,1.5])
+silent_switch();
+
+
+// left face button switch
+translate([switch_offset_x_directions - 5, 5,1.5])
+silent_switch();
+
+
+
+PCB_THICKNESS = 1.5;
+PCB_HEIGHT = 56.5;
+PCB_WIDTH = 115;
 
 PCB(
     big_hole_radius=2.5, 
     small_hole_radius=1, 
-    PCB_thickness=pcb_thickness);
+    PCB_thickness=PCB_THICKNESS);
 
-translate([0.75,-35,-(pcb_thickness+0.5)])  
+translate([0.75,-35,-(PCB_THICKNESS+0.5)])  
     button_support_platform(
-        pcb_width=115, 
-        pcb_height=56.5, 
-        pcb_thickness=1.5, 
+        pcb_width=PCB_WIDTH, 
+        pcb_height=PCB_HEIGHT, 
+        pcb_thickness=PCB_THICKNESS, 
         big_hole_radius=2.5,
         small_hole_radius=1);
+        
+translate([0,0,10])
+    top_shell(PCB_WIDTH, PCB_HEIGHT, PCB_THICKNESS);
