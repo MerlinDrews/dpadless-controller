@@ -15,7 +15,7 @@ module PCB (
                 rotate([0,0,1.5])
                 translate(offset_position)
                 linear_extrude(PCB_thickness) {
-                    import(file = "top-pcb.svg", dpi=DPI);
+                    import(file = "images/top-pcb.svg", dpi=DPI);
                 }
 
                 
