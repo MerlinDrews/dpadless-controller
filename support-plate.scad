@@ -44,8 +44,8 @@ module button_support_platform(
             cube([pcb_width/4, pcb_height/4, pcb_thickness + 0.5]);
        
         // up right addition
-        translate([86.25,55,0])
-            cube([pcb_width/4, pcb_height/4, pcb_thickness + 0.5]);
+        translate([76.7,55,0])
+            cube([pcb_width/3, pcb_height/4, pcb_thickness + 0.5]);
        
     }
     
