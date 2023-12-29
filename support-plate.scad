@@ -3,7 +3,13 @@ module button_support_platform(
     pcb_height, 
     pcb_thickness,
     big_hole_radius,
-    small_hole_radius
+    small_hole_radius,
+    small_bottom_hole,
+    small_top_hole,
+    big_middle_hole,
+    big_hole_left,
+    big_hole_right,
+    position_offset
 ) {
     $fn = 60;
     clearance = 0.1;
@@ -15,28 +21,24 @@ module button_support_platform(
         cube([pcb_width, (pcb_height - main_plate_height), pcb_thickness + 0.5]);
         
         // bottom left big connector
-        translate([4.25,43,-1.5])
+        translate([big_hole_left.x,big_hole_left.y+position_offset,-1.5])
             screw_hole_cylinder(pcb_thickness + 5, big_hole_radius - clearance, 0.2);
        
         
         // middle big connector
-        translate([56.75,52.5,-1.5])
+        translate([big_middle_hole.x,big_middle_hole.y+position_offset,-1.5])
             screw_hole_cylinder(pcb_thickness + 5, big_hole_radius - clearance, 0.2);
         
         // right big connector
-        translate([104.25,43,-1.5])
+        translate([big_hole_right.x,big_hole_right.y+position_offset,-1.5])
             screw_hole_cylinder(pcb_thickness + 5, big_hole_radius - clearance, 0.2);
         
         // extra big connector
-        translate([56.75,25,-1.5])
+        translate([big_middle_hole.x,25,-1.5])
             screw_hole_cylinder(pcb_thickness + 5, big_hole_radius - clearance, 0.2);
        
-        // left (dpad) small connector
-        translate([24.25,50,pcb_thickness])
-                cylinder(pcb_thickness+1, small_hole_radius - clearance, small_hole_radius - clearance);
-            
-        // middle (dpad) small connector
-        translate([56.75,38.5,pcb_thickness])
+        // middle small connector
+        translate([small_bottom_hole.x,small_bottom_hole.y + position_offset,pcb_thickness])
                 cylinder(pcb_thickness+1, small_hole_radius - clearance, small_hole_radius - clearance);
                 
         // up left addittion
