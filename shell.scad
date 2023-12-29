@@ -13,7 +13,7 @@ module shell(
     cube_width = pcb_height + main_plate_height + height_overhang*2;
        
     cylinder_ratio = 0.115;
-    color("pink") {  
+    color("green") {  
         
        
             difference(){

@@ -3,6 +3,7 @@ use <silent-switch.scad>
 use <shell.scad>
 use <topshell.scad>
 use <support-plate.scad>
+use <button-shape.scad>
 
 
 //positions of silent switches for buttons
@@ -25,6 +26,7 @@ BIG_MIDDLE_HOLE = [53.5+BIG_HOLE_RADIUS, 15+BIG_HOLE_RADIUS, -PCB_THICKNESS*2];
 BIG_HOLE_LEFT = [3.5+BIG_HOLE_RADIUS, 4.6+BIG_HOLE_RADIUS, -PCB_THICKNESS*2];
 BIG_HOLE_RIGHT = [103.5+BIG_HOLE_RADIUS, 4.6+BIG_HOLE_RADIUS, -PCB_THICKNESS*2];
 
+/*
 PCB(
     big_hole_radius=BIG_HOLE_RADIUS, 
     small_hole_radius=SMALL_HOLE_RADIUS, 
@@ -50,13 +52,13 @@ translate([0.0,-support_platform_offset,-(PCB_THICKNESS+0.5)])
         big_hole_left=BIG_HOLE_LEFT,
         big_hole_right=BIG_HOLE_RIGHT,
         position_offset=support_platform_offset);
-      
+*/      
 
 
 // Top shell
 top_shell_offset = 12;
 translate([top_shell_offset,0,6])
-    #topshell(
+    topshell(
       button_hole_radius=BUTTON_HOLE_RADIUS,
       pcb_width=PCB_WIDTH,
       pcb_thickness=PCB_THICKNESS,
@@ -69,9 +71,27 @@ translate([top_shell_offset,0,6])
       big_hole_right=BIG_HOLE_RIGHT,
       position_offset=top_shell_offset);
 
-/*
+BUTTON_HEIGHT = 10;
+
+translate([switch_offset_x_directions-3,2*switch_offset_distance-17+BUTTON_HOLE_RADIUS,9])
+  button(
+    button_height=BUTTON_HEIGHT,
+    button_radius=BUTTON_HOLE_RADIUS-0.07
+  );
+
+translate([switch_offset_x_attacks+7,2*switch_offset_distance-17+BUTTON_HOLE_RADIUS,9])
+  button(
+    button_height=BUTTON_HEIGHT,
+    button_radius=BUTTON_HOLE_RADIUS-0.07
+  );
+
+translate([switch_offset_x_attacks+4,2*switch_offset_distance-22,9])
+  button(
+    button_height=BUTTON_HEIGHT,
+    button_radius=BUTTON_HOLE_RADIUS-0.07
+  );
 // Bottom shell
 rotate([180,0,0])
   translate([12,-PCB_HEIGHT+19,10])
       #shell(PCB_WIDTH, PCB_HEIGHT, PCB_THICKNESS);
-*/
+
