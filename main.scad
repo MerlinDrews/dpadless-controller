@@ -26,7 +26,7 @@ BIG_MIDDLE_HOLE = [53.5+BIG_HOLE_RADIUS, 15+BIG_HOLE_RADIUS, -PCB_THICKNESS*2];
 BIG_HOLE_LEFT = [3.5+BIG_HOLE_RADIUS, 4.6+BIG_HOLE_RADIUS, -PCB_THICKNESS*2];
 BIG_HOLE_RIGHT = [103.5+BIG_HOLE_RADIUS, 4.6+BIG_HOLE_RADIUS, -PCB_THICKNESS*2];
 
-/*
+
 PCB(
     big_hole_radius=BIG_HOLE_RADIUS, 
     small_hole_radius=SMALL_HOLE_RADIUS, 
@@ -52,12 +52,14 @@ translate([0.0,-support_platform_offset,-(PCB_THICKNESS+0.5)])
         big_hole_left=BIG_HOLE_LEFT,
         big_hole_right=BIG_HOLE_RIGHT,
         position_offset=support_platform_offset);
-*/      
+      
 
 
 // Top shell
 top_shell_offset = 12;
-translate([top_shell_offset,0,6])
+//proper distance
+//translate([top_shell_offset,0,6])
+translate([top_shell_offset,0,50])
     topshell(
       button_hole_radius=BUTTON_HOLE_RADIUS,
       pcb_width=PCB_WIDTH,
