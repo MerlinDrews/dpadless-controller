@@ -22,31 +22,31 @@ module button_support_platform(
         
         // bottom left big connector
         translate([big_hole_left.x,big_hole_left.y+position_offset,-1.5])
-            screw_hole_cylinder(pcb_thickness + 5, big_hole_radius - clearance, 0.2);
+            screw_hole_cylinder(pcb_thickness + 5, big_hole_radius - clearance, 1);
        
         
         // middle big connector
         translate([big_middle_hole.x,big_middle_hole.y+position_offset,-1.5])
-            screw_hole_cylinder(pcb_thickness + 5, big_hole_radius - clearance, 0.2);
+            screw_hole_cylinder(pcb_thickness + 5, big_hole_radius - clearance, 1);
         
         // right big connector
         translate([big_hole_right.x,big_hole_right.y+position_offset,-1.5])
-            screw_hole_cylinder(pcb_thickness + 5, big_hole_radius - clearance, 0.2);
+            screw_hole_cylinder(pcb_thickness + 5, big_hole_radius - clearance, 1);
         
         // extra big connector
         translate([big_middle_hole.x,25,-1.5])
-            screw_hole_cylinder(pcb_thickness + 5, big_hole_radius - clearance, 0.2);
+            screw_hole_cylinder(pcb_thickness + 5, big_hole_radius - clearance, 1);
        
         // middle small connector
         translate([small_bottom_hole.x,small_bottom_hole.y + position_offset,pcb_thickness])
                 cylinder(pcb_thickness+1, small_hole_radius - clearance, small_hole_radius - clearance);
                 
         // up left addittion
-        translate([0,55,0])
+        translate([0,54,0])
             cube([pcb_width/4, pcb_height/4, pcb_thickness + 0.5]);
        
         // up right addition
-        translate([76.7,55,0])
+        translate([77.8,54,0])
             cube([pcb_width/3, pcb_height/4, pcb_thickness + 0.5]);
        
     }

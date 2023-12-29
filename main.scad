@@ -51,7 +51,7 @@ translate([0.0,-support_platform_offset,-(PCB_THICKNESS+0.5)])
         position_offset=support_platform_offset);
       
 
-/*
+
 // Top shell
 translate([12,0,6])
     difference() {
@@ -77,10 +77,9 @@ translate([12,0,6])
         #cylinder(100, BUTTON_HOLE_RADIUS, BUTTON_HOLE_RADIUS);
     }
 
+/*
 // Bottom shell
 rotate([180,0,0])
   translate([12,-PCB_HEIGHT+19,10])
       #shell(PCB_WIDTH, PCB_HEIGHT, PCB_THICKNESS);
-
-
 */
