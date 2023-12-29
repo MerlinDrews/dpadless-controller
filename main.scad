@@ -1,6 +1,7 @@
 use <PCB.scad>
 use <silent-switch.scad>
 use <shell.scad>
+use <topshell.scad>
 use <support-plate.scad>
 
 
@@ -15,7 +16,7 @@ PCB_WIDTH = 116.7;
 BIG_HOLE_RADIUS = 2;
 SMALL_HOLE_RADIUS = 0.5;
 
-BUTTON_HOLE_RADIUS = 4;
+BUTTON_HOLE_RADIUS = 5;
 
 
 SMALL_BOTTOM_HOLE = [55+SMALL_HOLE_RADIUS, 2.4+SMALL_HOLE_RADIUS, -PCB_THICKNESS*2];
@@ -54,28 +55,14 @@ translate([0.0,-support_platform_offset,-(PCB_THICKNESS+0.5)])
 
 // Top shell
 translate([12,0,6])
-    difference() {
-
-#      shell(PCB_WIDTH, PCB_HEIGHT, PCB_THICKNESS);
-
-      translate([
-          switch_offset_x_attacks-BUTTON_HOLE_RADIUS*2,
-          4+BUTTON_HOLE_RADIUS,
-          1.5])
-        #cylinder(100, BUTTON_HOLE_RADIUS, BUTTON_HOLE_RADIUS);
-
-      translate([
-          switch_offset_x_attacks-BUTTON_HOLE_RADIUS*2+3,
-          (2*switch_offset_distance)-16+BUTTON_HOLE_RADIUS,
-          1.5])
-        #cylinder(100, BUTTON_HOLE_RADIUS, BUTTON_HOLE_RADIUS);
-
-      translate([
-          switch_offset_x_directions-BUTTON_HOLE_RADIUS*2-7,
-          (2*switch_offset_distance)-4-BUTTON_HOLE_RADIUS*2,
-          1.5])
-        #cylinder(100, BUTTON_HOLE_RADIUS, BUTTON_HOLE_RADIUS);
-    }
+    #topshell(
+      button_hole_radius=BUTTON_HOLE_RADIUS,
+      pcb_width=PCB_WIDTH,
+      pcb_thickness=PCB_THICKNESS,
+      pcb_height=PCB_HEIGHT,
+      switch_offset_x_attacks=switch_offset_x_attacks,
+      switch_offset_x_directions=switch_offset_x_directions,
+      switch_offset_distance=switch_offset_distance);
 
 /*
 // Bottom shell
