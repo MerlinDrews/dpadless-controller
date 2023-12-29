@@ -60,6 +60,6 @@ module screw_hole_cylinder (height, outside_radius, wall_thickness) {
     difference(){
         cylinder(height, outside_radius, outside_radius);
         translate([0,0,-1])
-        #cylinder(height + clearance_height, outside_radius - wall_thickness, outside_radius - wall_thickness);
+        cylinder(height + clearance_height, outside_radius - wall_thickness, outside_radius - wall_thickness);
     }
 }

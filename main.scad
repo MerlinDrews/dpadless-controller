@@ -54,7 +54,8 @@ translate([0.0,-support_platform_offset,-(PCB_THICKNESS+0.5)])
 
 
 // Top shell
-translate([12,0,6])
+top_shell_offset = 12;
+translate([top_shell_offset,0,6])
     #topshell(
       button_hole_radius=BUTTON_HOLE_RADIUS,
       pcb_width=PCB_WIDTH,
@@ -62,7 +63,11 @@ translate([12,0,6])
       pcb_height=PCB_HEIGHT,
       switch_offset_x_attacks=switch_offset_x_attacks,
       switch_offset_x_directions=switch_offset_x_directions,
-      switch_offset_distance=switch_offset_distance);
+      switch_offset_distance=switch_offset_distance,
+      big_middle_hole=BIG_MIDDLE_HOLE,
+      big_hole_left=BIG_HOLE_LEFT,
+      big_hole_right=BIG_HOLE_RIGHT,
+      position_offset=top_shell_offset);
 
 /*
 // Bottom shell
