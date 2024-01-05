@@ -18,13 +18,13 @@ module shell(
        
             difference(){
             
-                union() {
-                    translate([-width_overhang,-(main_plate_height+height_overhang),pcb_thickness-10])
+                hull() {
+/*                    translate([-width_overhang,-(main_plate_height+height_overhang),pcb_thickness-10])
                         cube([
                                 cube_height, 
                                 cube_width, 
                                 shell_thickness]);
-                        
+*/                       
                         translate([-main_plate_height/2, -(main_plate_height+height_overhang), -pcb_thickness-0.25])
                             rotate([-90,0,0])
                                 cylinder(cube_width, cube_height*cylinder_ratio, cube_height*cylinder_ratio);
