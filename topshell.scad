@@ -101,13 +101,13 @@ module topshell(
       translate(left_side_button_1)
       cylinder(100, button_hole_radius, button_hole_radius);
 
-      translate(start_button)
+      translate([start_button.x, start_button.y, 1.5])
       cylinder(100, button_hole_radius, button_hole_radius);
 
-      translate(select_button_left)
+      translate([select_button_left.x, select_button_left.y, 1.5])
       cylinder(100, button_hole_radius, button_hole_radius);
 
-      translate(select_button_right)
+      translate([select_button_right.x, select_button_right.y, 1.5])
       cylinder(100, button_hole_radius, button_hole_radius);
 
       translate([40,pcb_height+3,-8])
