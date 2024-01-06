@@ -70,21 +70,21 @@ module topshell(
           button_stopper_height,
           button_stopper_width_with_clearance);
 
-        translate([start_button.x, start_button.y, 2])
+        translate([start_button.x-position_offset, start_button.y, 2])
         button_housing(
           button_hole_radius,
           button_housing_factor,
           button_stopper_height,
           button_stopper_width_with_clearance);
 
-        translate([select_button_left.x, select_button_left.y, 2])
+        translate([select_button_left.x-position_offset, select_button_left.y, 2])
         button_housing(
           button_hole_radius,
           button_housing_factor,
           button_stopper_height,
           button_stopper_width_with_clearance);
 
-        translate([select_button_right.x, select_button_right.y, 2])
+        translate([select_button_right.x-position_offset, select_button_right.y, 2])
         button_housing(
           button_hole_radius,
           button_housing_factor,
@@ -101,13 +101,13 @@ module topshell(
       translate(left_side_button_1)
       cylinder(100, button_hole_radius, button_hole_radius);
 
-      translate([start_button.x, start_button.y, 1.5])
+      translate([start_button.x-position_offset, start_button.y, 1.5])
       cylinder(100, button_hole_radius, button_hole_radius);
 
-      translate([select_button_left.x, select_button_left.y, 1.5])
+      translate([select_button_left.x-position_offset, select_button_left.y, 1.5])
       cylinder(100, button_hole_radius, button_hole_radius);
 
-      translate([select_button_right.x, select_button_right.y, 1.5])
+      translate([select_button_right.x-position_offset, select_button_right.y, 1.5])
       cylinder(100, button_hole_radius, button_hole_radius);
 
       translate([40,pcb_height+3,-8])
@@ -117,6 +117,19 @@ module topshell(
 
     screw_hole_z = -10;
     screw_hole_height = 15;
+    screw_hole_offset = 7;
+
+    translate([0-screw_hole_offset*2,0-screw_hole_offset*4.5,screw_hole_z])
+      screw_hole_cylinder(screw_hole_height,2,1);
+
+    translate([pcb_width-screw_hole_offset,0-screw_hole_offset*4.5,screw_hole_z])
+      screw_hole_cylinder(screw_hole_height,2,1);
+
+    translate([0-screw_hole_offset*2,pcb_height,screw_hole_z])
+      screw_hole_cylinder(screw_hole_height,2,1);
+
+    translate([pcb_width-screw_hole_offset,pcb_height,screw_hole_z])
+      screw_hole_cylinder(screw_hole_height,2,1);
 
     translate([big_hole_left.x-position_offset,big_hole_left.y,screw_hole_z])
       screw_hole_cylinder(screw_hole_height,2,1);
@@ -147,7 +160,7 @@ module button_housing(
       -10,
       -button_stopper_width_with_clearance/2,
       button_stopper_height-5])
-    #cube([
+    cube([
       button_hole_radius*4,
       button_stopper_width_with_clearance,
       button_stopper_height]);
