@@ -95,6 +95,6 @@ translate([switch_offset_x_attacks+4,2*switch_offset_distance-22,9])
   );
 // Bottom shell
 rotate([180,0,0])
-  translate([12,-PCB_HEIGHT+19,10])
-      #shell(PCB_WIDTH, PCB_HEIGHT, PCB_THICKNESS);
+  translate([top_shell_offset,-PCB_HEIGHT+19,10])
+      shell(PCB_WIDTH, PCB_HEIGHT, PCB_THICKNESS);
 
