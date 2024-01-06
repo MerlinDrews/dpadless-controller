@@ -70,9 +70,10 @@ translate([switch_offset_x_directions - 6, (2*switch_offset_distance)-15,1.5])
   silent_switch();
 
 
-// left face button switch
-//translate([switch_offset_x_directions - 14, 2*(switch_offset_distance)-8,1.5])
-//  silent_switch();
+// select switch
+translate([51,22,1.5])
+  silent_switch();
+
 
 
 // left face button switch

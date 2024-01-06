@@ -19,13 +19,14 @@ SMALL_HOLE_RADIUS = 0.5;
 
 BUTTON_HOLE_RADIUS = 5;
 
-
 SMALL_BOTTOM_HOLE = [55+SMALL_HOLE_RADIUS, 2.4+SMALL_HOLE_RADIUS, -PCB_THICKNESS*2];
 SMALL_TOP_HOLE = [77.5+SMALL_HOLE_RADIUS, 53.2+SMALL_HOLE_RADIUS, -PCB_THICKNESS*2];
 BIG_MIDDLE_HOLE = [53.5+BIG_HOLE_RADIUS, 15+BIG_HOLE_RADIUS, -PCB_THICKNESS*2];
 BIG_HOLE_LEFT = [3.5+BIG_HOLE_RADIUS, 4.9+BIG_HOLE_RADIUS, -PCB_THICKNESS*2];
 BIG_HOLE_RIGHT = [103.5+BIG_HOLE_RADIUS, 4.9+BIG_HOLE_RADIUS, -PCB_THICKNESS*2];
-
+START_BUTTON= [51+BUTTON_HOLE_RADIUS/2+0.07,22+BUTTON_HOLE_RADIUS/2+0.07,9];
+SELECT_BUTTON_LEFT = [44+BUTTON_HOLE_RADIUS/2-0.07,8.4+BUTTON_HOLE_RADIUS/2-0.07,2];
+SELECT_BUTTON_RIGHT = [59+BUTTON_HOLE_RADIUS/2-0.07,8.4+BUTTON_HOLE_RADIUS/2-0.07,2];
 
 PCB(
     big_hole_radius=BIG_HOLE_RADIUS, 
@@ -72,6 +73,9 @@ translate([top_shell_offset,0,50])
       big_middle_hole=BIG_MIDDLE_HOLE,
       big_hole_left=BIG_HOLE_LEFT,
       big_hole_right=BIG_HOLE_RIGHT,
+      start_button=START_BUTTON,
+      select_button_left=SELECT_BUTTON_LEFT,
+      select_button_right=SELECT_BUTTON_RIGHT,
       position_offset=top_shell_offset);
 
 BUTTON_HEIGHT = 10;
@@ -93,6 +97,31 @@ translate([switch_offset_x_attacks+4,2*switch_offset_distance-22,9])
     button_height=BUTTON_HEIGHT,
     button_radius=BUTTON_HOLE_RADIUS-0.07
   );
+
+// start button
+translate(START_BUTTON)
+rotate([0,0,90])
+  button(
+    button_height=BUTTON_HEIGHT,
+    button_radius=BUTTON_HOLE_RADIUS-0.07
+  );
+
+// select button left
+translate(SELECT_BUTTON_LEFT)
+rotate([0,0,90])
+  button(
+    button_height=BUTTON_HEIGHT+7,
+    button_radius=BUTTON_HOLE_RADIUS-0.07
+  );
+
+// select button right
+translate(SELECT_BUTTON_RIGHT)
+rotate([0,0,90])
+  button(
+    button_height=BUTTON_HEIGHT+7,
+    button_radius=BUTTON_HOLE_RADIUS-0.07
+  );
+
 // Bottom shell
 rotate([180,0,0])
   translate([top_shell_offset,-PCB_HEIGHT+19,10])

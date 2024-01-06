@@ -13,6 +13,9 @@ module topshell(
       big_middle_hole,
       big_hole_left,
       big_hole_right,
+      start_button,
+      select_button_left,
+      select_button_right,
       position_offset
 ){
   $fn = 60;
@@ -39,27 +42,54 @@ module topshell(
         button_stopper_width_with_clearance = 3.2;
         button_stopper_height = 4;
 
-        difference() {
-          translate([left_side_button_1.x, left_side_button_1.y, 2])
-            cylinder(3, button_hole_radius*button_housing_factor, button_hole_radius*button_housing_factor);
-          translate([left_side_button_1.x-10, left_side_button_1.y-button_stopper_width_with_clearance/2, button_stopper_height-3])
-            cube([button_hole_radius*4,button_stopper_width_with_clearance, button_stopper_height]);
-        }
+        translate([left_side_button_1.x, left_side_button_1.y, 2])
+        button_housing(
+          button_hole_radius,
+          button_housing_factor,
+          button_stopper_height,
+          button_stopper_width_with_clearance);
 
+        translate([right_side_button_1.x, right_side_button_1.y, 2])
+        button_housing(
+          button_hole_radius,
+          button_housing_factor,
+          button_stopper_height,
+          button_stopper_width_with_clearance);
 
-        difference() {
-          translate([right_side_button_1.x, right_side_button_1.y, 2])
-            cylinder(3, button_hole_radius*button_housing_factor, button_hole_radius*button_housing_factor);
-          translate([right_side_button_1.x-10, right_side_button_1.y-button_stopper_width_with_clearance/2, button_stopper_height-3])
-            cube([button_hole_radius*4,button_stopper_width_with_clearance, button_stopper_height]);
-        }
-
-        difference() {
         translate([right_side_button_2.x, right_side_button_2.y, 2])
-          cylinder(3, button_hole_radius*button_housing_factor, button_hole_radius*button_housing_factor);
-          translate([right_side_button_2.x-10, right_side_button_2.y-button_stopper_width_with_clearance/2, button_stopper_height-3])
-            cube([button_hole_radius*4,button_stopper_width_with_clearance, button_stopper_height]);
-        } 
+        button_housing(
+          button_hole_radius,
+          button_housing_factor,
+          button_stopper_height,
+          button_stopper_width_with_clearance);
+
+        translate([right_side_button_2.x, right_side_button_2.y, 2])
+        button_housing(
+          button_hole_radius,
+          button_housing_factor,
+          button_stopper_height,
+          button_stopper_width_with_clearance);
+
+        translate([start_button.x, start_button.y, 2])
+        button_housing(
+          button_hole_radius,
+          button_housing_factor,
+          button_stopper_height,
+          button_stopper_width_with_clearance);
+
+        translate([select_button_left.x, select_button_left.y, 2])
+        button_housing(
+          button_hole_radius,
+          button_housing_factor,
+          button_stopper_height,
+          button_stopper_width_with_clearance);
+
+        translate([select_button_right.x, select_button_right.y, 2])
+        button_housing(
+          button_hole_radius,
+          button_housing_factor,
+          button_stopper_height,
+          button_stopper_width_with_clearance);
       }
 
       translate(right_side_button_1)
@@ -69,6 +99,15 @@ module topshell(
       cylinder(100, button_hole_radius, button_hole_radius);
 
       translate(left_side_button_1)
+      cylinder(100, button_hole_radius, button_hole_radius);
+
+      translate(start_button)
+      cylinder(100, button_hole_radius, button_hole_radius);
+
+      translate(select_button_left)
+      cylinder(100, button_hole_radius, button_hole_radius);
+
+      translate(select_button_right)
       cylinder(100, button_hole_radius, button_hole_radius);
 
       translate([40,pcb_height+3,-8])
@@ -92,5 +131,26 @@ module topshell(
       screw_hole_cylinder(screw_hole_height,2,1);
 
   }
+}
+
+module button_housing(
+  button_hole_radius,
+  button_housing_factor,
+  button_stopper_height,
+  button_stopper_width_with_clearance) {
+  difference() {
+    cylinder(
+      3,
+      button_hole_radius*button_housing_factor,
+      button_hole_radius*button_housing_factor);
+    translate([
+      -10,
+      -button_stopper_width_with_clearance/2,
+      button_stopper_height-5])
+    #cube([
+      button_hole_radius*4,
+      button_stopper_width_with_clearance,
+      button_stopper_height]);
+  } 
 }
 

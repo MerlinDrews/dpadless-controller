@@ -35,7 +35,7 @@ module shell(
       -16,
       -(main_plate_height+height_overhang)+shell_strength/2-cube_height*cylinder_ratio+4,
       -(shell_thickness*2-shell_strength)])
-#    cube([
+    cube([
       cube_height*1.1-shell_strength+5,
       cube_width-shell_strength+cube_height*cylinder_ratio/2,
       shell_thickness*2]);
