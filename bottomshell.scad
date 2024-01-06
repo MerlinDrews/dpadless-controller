@@ -3,7 +3,7 @@ use <support-plate.scad>
 use <button-shape.scad>
 use <button-housing.scad>
 
-module topshell(
+module bottomshell(
       button_hole_radius,
       pcb_width,
       pcb_thickness,
