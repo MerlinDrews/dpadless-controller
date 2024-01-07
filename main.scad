@@ -131,8 +131,8 @@ rotate([0,0,90])
 
 // Bottom shell
 rotate([180,0,0])
-  translate([top_shell_offset,-PCB_HEIGHT+33,6])
-//  translate([top_shell_offset,-PCB_HEIGHT+33,50])
+//  translate([top_shell_offset,-PCB_HEIGHT+33,6])
+  translate([top_shell_offset,-PCB_HEIGHT+33,50])
     bottomshell(
       button_hole_radius=BUTTON_HOLE_RADIUS,
       pcb_width=PCB_WIDTH,
