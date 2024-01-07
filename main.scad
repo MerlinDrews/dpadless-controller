@@ -61,8 +61,8 @@ translate([0.0,-support_platform_offset,-(PCB_THICKNESS+0.5)])
 // Top shell
 top_shell_offset = 12;
 //proper distance
-//translate([top_shell_offset,0,6])
-translate([top_shell_offset,0,70])
+translate([top_shell_offset,0,6.0])
+//translate([top_shell_offset,0,70])
     topshell(
       button_hole_radius=BUTTON_HOLE_RADIUS,
       pcb_width=PCB_WIDTH,
@@ -88,7 +88,7 @@ SHOULDER1_BUTTON_POS = [switch_offset_x_attacks+12,2*switch_offset_distance+5,9]
 SHOULDER2_BUTTON_POS = [switch_offset_x_attacks+4,2*switch_offset_distance-5,9];
 
 translate(JUMP_BUTTON_POS)
-#  button(
+  button(
     button_height=BUTTON_HEIGHT,
     button_radius=BUTTON_HOLE_RADIUS-0.07
   );
@@ -131,8 +131,8 @@ rotate([0,0,90])
 
 // Bottom shell
 rotate([180,0,0])
-//  translate([top_shell_offset,-PCB_HEIGHT+33,6])
-  translate([top_shell_offset,-PCB_HEIGHT+33,50])
+  translate([top_shell_offset,-PCB_HEIGHT+33,6])
+//  translate([top_shell_offset,-PCB_HEIGHT+33,50])
     bottomshell(
       button_hole_radius=BUTTON_HOLE_RADIUS,
       pcb_width=PCB_WIDTH,

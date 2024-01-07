@@ -116,7 +116,7 @@ module bottomshell(
 
       translate([hp_pos.x-position_offset, -hp_pos.y, 1.5])
       cylinder(100, button_hole_radius, button_hole_radius);
-      
+
       translate([lk_pos.x-position_offset, -lk_pos.y, 1.5])
       cylinder(100, button_hole_radius, button_hole_radius);
 
@@ -126,9 +126,12 @@ module bottomshell(
       translate([hk_pos.x-position_offset, -hk_pos.y, 1.5])
       cylinder(100, button_hole_radius, button_hole_radius);
 
-      translate([40,pcb_height+3,-8])
-        cube([7,7,3]);
+      translate([40,-pcb_height+16,-7.5])
+#        cube([7,8,3]);
 
+
+      translate([-60,-80,-44])
+        cube([200,200,40]);
     }
 
     screw_hole_z = -10;
