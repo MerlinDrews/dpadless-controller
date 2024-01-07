@@ -11,6 +11,9 @@ module topshell(
       switch_offset_x_attacks,
       switch_offset_x_directions,
       switch_offset_distance,
+      jump_button,
+      shoulder1_button,
+      shoulder2_button,
       big_middle_hole,
       big_hole_left,
       big_hole_right,
@@ -43,34 +46,34 @@ module topshell(
         button_stopper_width_with_clearance = 3.2;
         button_stopper_height = 4;
 
-        translate([left_side_button_1.x, left_side_button_1.y, 2])
+        translate([jump_button.x-position_offset, jump_button.y, 2])
         button_housing(
           button_hole_radius,
           button_housing_factor,
           button_stopper_height,
           button_stopper_width_with_clearance);
 
-        translate([right_side_button_1.x, right_side_button_1.y, 2])
+        translate([shoulder2_button.x-position_offset, shoulder2_button.y, 2])
         button_housing(
           button_hole_radius,
           button_housing_factor,
           button_stopper_height,
           button_stopper_width_with_clearance);
 
-        translate([right_side_button_2.x, right_side_button_2.y, 2])
+        translate([shoulder1_button.x-position_offset, shoulder1_button.y, 2])
         button_housing(
           button_hole_radius,
           button_housing_factor,
           button_stopper_height,
           button_stopper_width_with_clearance);
 
-        translate([right_side_button_2.x, right_side_button_2.y, 2])
+/*        translate([right_side_button_2.x, right_side_button_2.y, 2])
         button_housing(
           button_hole_radius,
           button_housing_factor,
           button_stopper_height,
           button_stopper_width_with_clearance);
-
+*/
         translate([start_button.x-position_offset, start_button.y, 2])
         button_housing(
           button_hole_radius,
@@ -93,13 +96,13 @@ module topshell(
           button_stopper_width_with_clearance);
       }
 
-      translate(right_side_button_1)
+      translate([shoulder2_button.x-position_offset, shoulder2_button.y, 1.5])
       cylinder(100, button_hole_radius, button_hole_radius);
 
-      translate(right_side_button_2)
+      translate([shoulder1_button.x-position_offset,shoulder1_button.y, 1.5])
       cylinder(100, button_hole_radius, button_hole_radius);
 
-      translate(left_side_button_1)
+      translate([jump_button.x-position_offset, jump_button.y, 1.5])
       cylinder(100, button_hole_radius, button_hole_radius);
 
       translate([start_button.x-position_offset, start_button.y, 1.5])

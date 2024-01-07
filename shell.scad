@@ -41,7 +41,7 @@ module shell(
       shell_thickness*2]);
         
     translate([
-      -cube_height/2,
+      -cube_height*0.5,
       -cube_width,
       -(shell_thickness*2+8)])
     cube([

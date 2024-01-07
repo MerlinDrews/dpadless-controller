@@ -74,6 +74,8 @@ translate([top_shell_offset,0,70])
       big_middle_hole=BIG_MIDDLE_HOLE,
       big_hole_left=BIG_HOLE_LEFT,
       big_hole_right=BIG_HOLE_RIGHT,
+      jump_button=JUMP_BUTTON_POS,
+      shoulder1_button=SHOULDER1_BUTTON_POS, shoulder2_button=SHOULDER2_BUTTON_POS,
       start_button=START_BUTTON,
       select_button_left=SELECT_BUTTON_LEFT,
       select_button_right=SELECT_BUTTON_RIGHT,
@@ -81,19 +83,23 @@ translate([top_shell_offset,0,70])
 
 BUTTON_HEIGHT = 10;
 
-translate([switch_offset_x_directions-3,2*switch_offset_distance-17+BUTTON_HOLE_RADIUS,9])
+JUMP_BUTTON_POS = [switch_offset_x_directions+3, (2*switch_offset_distance)+5,9];
+SHOULDER1_BUTTON_POS = [switch_offset_x_attacks+12,2*switch_offset_distance+5,9];
+SHOULDER2_BUTTON_POS = [switch_offset_x_attacks+4,2*switch_offset_distance-5,9];
+
+translate(JUMP_BUTTON_POS)
+#  button(
+    button_height=BUTTON_HEIGHT,
+    button_radius=BUTTON_HOLE_RADIUS-0.07
+  );
+
+translate(SHOULDER1_BUTTON_POS)
   button(
     button_height=BUTTON_HEIGHT,
     button_radius=BUTTON_HOLE_RADIUS-0.07
   );
 
-translate([switch_offset_x_attacks+7,2*switch_offset_distance-17+BUTTON_HOLE_RADIUS,9])
-  button(
-    button_height=BUTTON_HEIGHT,
-    button_radius=BUTTON_HOLE_RADIUS-0.07
-  );
-
-translate([switch_offset_x_attacks+4,2*switch_offset_distance-22,9])
+translate(SHOULDER2_BUTTON_POS)
   button(
     button_height=BUTTON_HEIGHT,
     button_radius=BUTTON_HOLE_RADIUS-0.07
@@ -125,8 +131,8 @@ rotate([0,0,90])
 
 // Bottom shell
 rotate([180,0,0])
-  translate([top_shell_offset,-PCB_HEIGHT+33,6])
- // translate([top_shell_offset,0,50])
+//  translate([top_shell_offset,-PCB_HEIGHT+33,6])
+  translate([top_shell_offset,-PCB_HEIGHT+33,50])
     bottomshell(
       button_hole_radius=BUTTON_HOLE_RADIUS,
       pcb_width=PCB_WIDTH,
@@ -138,9 +144,15 @@ rotate([180,0,0])
       big_middle_hole=BIG_MIDDLE_HOLE,
       big_hole_left=BIG_HOLE_LEFT,
       big_hole_right=BIG_HOLE_RIGHT,
-      start_button=START_BUTTON,
-      select_button_left=SELECT_BUTTON_LEFT,
-      select_button_right=SELECT_BUTTON_RIGHT,
+      right_pos=B_RIGHT_POS,
+      down_pos=B_DOWN_POS,
+      left_pos=B_LEFT_POS,
+      lp_pos=B_LP_POS,
+      mp_pos=B_MP_POS,
+      hp_pos=B_HP_POS,
+      lk_pos=B_LK_POS,
+      mk_pos=B_MK_POS,
+      hk_pos=B_HK_POS,
       position_offset=top_shell_offset);
 
 B_RIGHT_POS = [switch_offset_x_directions+BUTTON_HOLE_RADIUS/2+0.07,-(2*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.07,9];

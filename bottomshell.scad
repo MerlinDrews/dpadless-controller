@@ -14,26 +14,18 @@ module bottomshell(
       big_middle_hole,
       big_hole_left,
       big_hole_right,
-      start_button,
-      select_button_left,
-      select_button_right,
+      right_pos,
+      down_pos,
+      left_pos,
+      lp_pos,
+      mp_pos,
+      hp_pos,
+      lk_pos,
+      mk_pos,
+      hk_pos,
       position_offset
 ){
   $fn = 60;
-  right_side_button_1 = [
-        switch_offset_x_attacks-button_hole_radius-3,
-        button_hole_radius+3,
-        1.5];
-  right_side_button_2 = [
-        switch_offset_x_attacks-button_hole_radius,
-        (2*switch_offset_distance)-17+button_hole_radius,
-        1.5];
-
-  left_side_button_1 = [
-        switch_offset_x_directions - 15,
-        (2*switch_offset_distance)-12,
-        1.5];
-
   union() {
     difference() {
       union () {
@@ -43,49 +35,63 @@ module bottomshell(
         button_stopper_width_with_clearance = 3.2;
         button_stopper_height = 4;
 
-        translate([left_side_button_1.x, left_side_button_1.y, 2])
+        translate([right_pos.x-position_offset, -right_pos.y, 2])
         button_housing(
           button_hole_radius,
           button_housing_factor,
           button_stopper_height,
           button_stopper_width_with_clearance);
 
-        translate([right_side_button_1.x, right_side_button_1.y, 2])
+        translate([down_pos.x-position_offset, -down_pos.y, 2])
         button_housing(
           button_hole_radius,
           button_housing_factor,
           button_stopper_height,
           button_stopper_width_with_clearance);
 
-        translate([right_side_button_2.x, right_side_button_2.y, 2])
+        translate([left_pos.x-position_offset, -left_pos.y, 2])
         button_housing(
           button_hole_radius,
           button_housing_factor,
           button_stopper_height,
           button_stopper_width_with_clearance);
 
-        translate([right_side_button_2.x, right_side_button_2.y, 2])
+        translate([lp_pos.x-position_offset, -lp_pos.y, 2])
         button_housing(
           button_hole_radius,
           button_housing_factor,
           button_stopper_height,
           button_stopper_width_with_clearance);
 
-        translate([start_button.x-position_offset, start_button.y, 2])
+        translate([mp_pos.x-position_offset, -mp_pos.y, 2])
         button_housing(
           button_hole_radius,
           button_housing_factor,
           button_stopper_height,
           button_stopper_width_with_clearance);
 
-        translate([select_button_left.x-position_offset, select_button_left.y, 2])
+        translate([hp_pos.x-position_offset, -hp_pos.y, 2])
         button_housing(
           button_hole_radius,
           button_housing_factor,
           button_stopper_height,
           button_stopper_width_with_clearance);
 
-        translate([select_button_right.x-position_offset, select_button_right.y, 2])
+        translate([lk_pos.x-position_offset, -lk_pos.y, 2])
+        button_housing(
+          button_hole_radius,
+          button_housing_factor,
+          button_stopper_height,
+          button_stopper_width_with_clearance);
+
+        translate([mk_pos.x-position_offset, -mk_pos.y, 2])
+        button_housing(
+          button_hole_radius,
+          button_housing_factor,
+          button_stopper_height,
+          button_stopper_width_with_clearance);
+
+        translate([hk_pos.x-position_offset, -hk_pos.y, 2])
         button_housing(
           button_hole_radius,
           button_housing_factor,
@@ -93,22 +99,31 @@ module bottomshell(
           button_stopper_width_with_clearance);
       }
 
-      translate(right_side_button_1)
+      translate([right_pos.x-position_offset, -right_pos.y, 1.5])
       cylinder(100, button_hole_radius, button_hole_radius);
 
-      translate(right_side_button_2)
+      translate([down_pos.x-position_offset, -down_pos.y, 1.5])
       cylinder(100, button_hole_radius, button_hole_radius);
 
-      translate(left_side_button_1)
+      translate([left_pos.x-position_offset, -left_pos.y, 1.5])
       cylinder(100, button_hole_radius, button_hole_radius);
 
-      translate([start_button.x-position_offset, start_button.y, 1.5])
+      translate([lp_pos.x-position_offset, -lp_pos.y, 1.5])
       cylinder(100, button_hole_radius, button_hole_radius);
 
-      translate([select_button_left.x-position_offset, select_button_left.y, 1.5])
+      translate([mp_pos.x-position_offset, -mp_pos.y, 1.5])
       cylinder(100, button_hole_radius, button_hole_radius);
 
-      translate([select_button_right.x-position_offset, select_button_right.y, 1.5])
+      translate([hp_pos.x-position_offset, -hp_pos.y, 1.5])
+      cylinder(100, button_hole_radius, button_hole_radius);
+      
+      translate([lk_pos.x-position_offset, -lk_pos.y, 1.5])
+      cylinder(100, button_hole_radius, button_hole_radius);
+
+      translate([mk_pos.x-position_offset, -mk_pos.y, 1.5])
+      cylinder(100, button_hole_radius, button_hole_radius);
+
+      translate([hk_pos.x-position_offset, -hk_pos.y, 1.5])
       cylinder(100, button_hole_radius, button_hole_radius);
 
       translate([40,pcb_height+3,-8])
