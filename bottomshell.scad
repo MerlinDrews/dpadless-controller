@@ -26,6 +26,9 @@ module bottomshell(
       position_offset
 ){
   $fn = 60;
+  screw_hole_z = -10;
+  screw_hole_height = 15;
+  screw_hole_offset = 7;
   union() {
     difference() {
       union () {
@@ -97,6 +100,9 @@ module bottomshell(
           button_housing_factor,
           button_stopper_height,
           button_stopper_width_with_clearance);
+	
+	translate([20,-20,screw_hole_z])
+	cube([3,10,20]);
       }
 
       translate([right_pos.x-position_offset, -right_pos.y, 1.5])
@@ -127,16 +133,13 @@ module bottomshell(
       cylinder(100, button_hole_radius, button_hole_radius);
 
       translate([40,-pcb_height+16,-7.5])
-#        cube([7,8,3]);
+        cube([7,8,3]);
 
 
       translate([-60,-80,-44])
         cube([200,200,40]);
     }
 
-    screw_hole_z = -10;
-    screw_hole_height = 15;
-    screw_hole_offset = 7;
 
     translate([0-screw_hole_offset*2,0-screw_hole_offset*4.5,screw_hole_z])
       screw_hole_cylinder(screw_hole_height,2,1);
@@ -160,7 +163,7 @@ module bottomshell(
       screw_hole_cylinder(screw_hole_height,2,1);
 
     translate([big_middle_hole.x-position_offset,-22+position_offset,screw_hole_z])
-      screw_hole_cylinder(screw_hole_height,2,1);
+#      screw_hole_cylinder(screw_hole_height,2,1);
 
   }
 }
