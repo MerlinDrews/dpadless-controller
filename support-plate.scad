@@ -51,7 +51,13 @@ module button_support_platform(
       // extra big connector
       translate([big_middle_hole.x,25,-1.5])
           cylinder(pcb_thickness + 5, big_hole_radius, big_hole_radius);
+
+// cable channel
+ 	translate([big_middle_hole.x,30,0])
+#	cube([20,5,20]);
        
+ 	translate([big_middle_hole.x-20,30,0])
+#	cube([20,5,20]);
   }
     
 }

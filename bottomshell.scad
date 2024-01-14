@@ -138,6 +138,30 @@ module bottomshell(
 
       translate([-60,-80,-44])
         cube([200,200,40]);
+
+	translate([0-screw_hole_offset*2,0-screw_hole_offset*4.5,1.5])
+	cylinder(100,2,2); 
+
+	translate([pcb_width-screw_hole_offset,0-screw_hole_offset*4.5,1.5])
+	cylinder(100,2,2); 
+
+	translate([0-screw_hole_offset*2,pcb_height,1.5])
+	cylinder(100,2,2); 
+
+	translate([pcb_width-screw_hole_offset,pcb_height,1.5])
+	cylinder(100,2,2); 
+
+	translate([big_hole_left.x-position_offset,big_hole_left.y,1.5])
+	cylinder(100,2,2); 
+	
+	translate([big_middle_hole.x-position_offset,big_middle_hole.y-position_offset+2.2,1.5])
+#	cylinder(100,2,2); 
+	
+	translate([big_hole_right.x-position_offset,big_hole_right.y,1.5])
+	cylinder(100,2,2); 
+	
+	translate([big_middle_hole.x-position_offset,44-position_offset+2.2, 1.5])
+#	cylinder(100,2,2); 
     }
 
 
@@ -156,14 +180,14 @@ module bottomshell(
     translate([big_hole_left.x-position_offset,big_hole_left.y,screw_hole_z])
       screw_hole_cylinder(screw_hole_height,2,1);
 
-    translate([big_middle_hole.x-position_offset,big_middle_hole.y,screw_hole_z])
+    translate([big_middle_hole.x-position_offset,big_middle_hole.y-position_offset+2.2,screw_hole_z])
       screw_hole_cylinder(screw_hole_height,2,1);
 
     translate([big_hole_right.x-position_offset,big_hole_right.y,screw_hole_z])
       screw_hole_cylinder(screw_hole_height,2,1);
 
-    translate([big_middle_hole.x-position_offset,-22+position_offset,screw_hole_z])
-#      screw_hole_cylinder(screw_hole_height,2,1);
+    translate([big_middle_hole.x-position_offset,44-position_offset+2.2,screw_hole_z])
+      screw_hole_cylinder(screw_hole_height,2,1);
 
   }
 }

@@ -61,8 +61,8 @@ translate([0.0,-support_platform_offset,-(PCB_THICKNESS+0.5)])
 // Top shell
 top_shell_offset = 12;
 //proper distance
-translate([top_shell_offset,0,6.0])
-//translate([top_shell_offset,0,70])
+//translate([top_shell_offset,0,6.0])
+translate([top_shell_offset,0,70])
     topshell(
       button_hole_radius=BUTTON_HOLE_RADIUS,
       pcb_width=PCB_WIDTH,
@@ -107,7 +107,7 @@ translate(SHOULDER2_BUTTON_POS)
 
 // start button
 translate(START_BUTTON)
-rotate([0,0,90])
+rotate([0,0,0])
   button(
     button_height=BUTTON_HEIGHT,
     button_radius=BUTTON_HOLE_RADIUS-0.07
@@ -155,17 +155,17 @@ rotate([180,0,0])
       hk_pos=B_HK_POS,
       position_offset=top_shell_offset);
 
-B_RIGHT_POS = [switch_offset_x_directions+BUTTON_HOLE_RADIUS/2+0.07,-(2*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.07,9];
-B_DOWN_POS = [switch_offset_x_directions+BUTTON_HOLE_RADIUS/2+0.07,-(1*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.07,9];
-B_LEFT_POS = [switch_offset_x_directions+BUTTON_HOLE_RADIUS/2+0.07,-(0*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.07,9];
+B_RIGHT_POS = [switch_offset_x_directions+BUTTON_HOLE_RADIUS/2+0.57,-(2*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.57,9];
+B_DOWN_POS = [switch_offset_x_directions+BUTTON_HOLE_RADIUS/2+0.57,-(1*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.57,9];
+B_LEFT_POS = [switch_offset_x_directions+BUTTON_HOLE_RADIUS/2+0.57,-(0*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.57,9];
 
-B_LP_POS = [switch_offset_x_attacks+BUTTON_HOLE_RADIUS/2+0.07,-(2*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.07,9];
-B_MP_POS = [switch_offset_x_attacks+BUTTON_HOLE_RADIUS/2+0.07,-(1*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.07,9];
-B_HP_POS = [switch_offset_x_attacks+BUTTON_HOLE_RADIUS/2+0.07,-(0*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.07,9];
+B_LP_POS = [switch_offset_x_attacks+BUTTON_HOLE_RADIUS/2+0.57,-(2*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.57,9];
+B_MP_POS = [switch_offset_x_attacks+BUTTON_HOLE_RADIUS/2+0.57,-(1*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.57,9];
+B_HP_POS = [switch_offset_x_attacks+BUTTON_HOLE_RADIUS/2+0.57,-(0*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.57,9];
 
-B_LK_POS = [switch_offset_x_attacks+switch_offset_distance+BUTTON_HOLE_RADIUS/2+0.07,-(2*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.07,9];
-B_MK_POS = [switch_offset_x_attacks+switch_offset_distance+BUTTON_HOLE_RADIUS/2+0.07,-(1*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.07,9];
-B_HK_POS = [switch_offset_x_attacks+switch_offset_distance+BUTTON_HOLE_RADIUS/2+0.07,-(0*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.07,9];
+B_LK_POS = [switch_offset_x_attacks+switch_offset_distance+BUTTON_HOLE_RADIUS/2+0.57,-(2*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.57,9];
+B_MK_POS = [switch_offset_x_attacks+switch_offset_distance+BUTTON_HOLE_RADIUS/2+0.57,-(1*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.57,9];
+B_HK_POS = [switch_offset_x_attacks+switch_offset_distance+BUTTON_HOLE_RADIUS/2+0.57,-(0*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+0.57,9];
 
 // bottom right button
 rotate([180,0,0])
