@@ -40,7 +40,7 @@ module topshell(
   union() {
     difference() {
       union () {
-#        shell(pcb_width, pcb_height, pcb_thickness);
+        shell(pcb_width, pcb_height, pcb_thickness);
 
         button_housing_factor = 1.4;
         button_stopper_width_with_clearance = 3.2;

@@ -27,7 +27,7 @@ module bottomshell(
 ){
   $fn = 60;
   screw_hole_z = -6;
-  screw_hole_height = 9;
+  screw_hole_height = 11;
   screw_hole_offset = 7;
 
   position_offset_space = position_offset;
@@ -141,26 +141,27 @@ module bottomshell(
 
   screw_head_spacing_height = 100;
   screw_head_spacing_diameter = 4;
-	translate([0-screw_hole_offset*2,0-screw_hole_offset*4.5,1.5])
+	translate([0-screw_hole_offset*2,0-screw_hole_offset*4.5-1.7,1.5])
   regular_cylinder(screw_head_spacing_height,screw_head_spacing_diameter); 
 
-	translate([pcb_width-screw_hole_offset,0-screw_hole_offset*4.5,1.5])
+	translate([pcb_width-screw_hole_offset,0-screw_hole_offset*4.5-1.7,1.5])
   regular_cylinder(screw_head_spacing_height,screw_head_spacing_diameter); 
 
-	translate([0-screw_hole_offset*2,pcb_height,1.5])
+	translate([0-screw_hole_offset*2,pcb_height-1.7,1.5])
   regular_cylinder(screw_head_spacing_height,screw_head_spacing_diameter); 
 
-	translate([pcb_width-screw_hole_offset,pcb_height,1.5])
+  translate([pcb_width-screw_hole_offset,pcb_height-1.7,screw_hole_z])
   regular_cylinder(screw_head_spacing_height,screw_head_spacing_diameter); 
 
-	translate([big_hole_left.x-position_offset,big_hole_left.y,1.5])
+  translate([big_hole_left.x-position_offset,big_hole_left.y+position_offset-1.7,1.5])
   regular_cylinder(screw_head_spacing_height,screw_head_spacing_diameter); 
 	
 	translate([big_middle_hole.x-position_offset,big_middle_hole.y-position_offset+2.2,1.5])
   regular_cylinder(screw_head_spacing_height,screw_head_spacing_diameter); 
 	
-	translate([big_hole_right.x-position_offset,big_hole_right.y,1.5])
-  regular_cylinder(screw_head_spacing_height,screw_head_spacing_diameter); 
+//	translate([big_hole_right.x-position_offset,big_hole_right.y,1.5])
+    translate([big_hole_right.x-position_offset,big_hole_right.y+position_offset-1.7,1.5])
+#  regular_cylinder(screw_head_spacing_height,screw_head_spacing_diameter); 
 	
 	translate([big_middle_hole.x-position_offset,44-position_offset+2.2, 1.5])
   regular_cylinder(screw_head_spacing_height,screw_head_spacing_diameter); 
@@ -186,7 +187,7 @@ module bottomshell(
       screw_hole_cylinder(screw_hole_height,2,1);
 
     translate([big_hole_right.x-position_offset,big_hole_right.y+position_offset-1.7,screw_hole_z])
-      screw_hole_cylinder(screw_hole_height,2,1);
+#      screw_hole_cylinder(screw_hole_height,2,1);
 
     translate([big_middle_hole.x-position_offset,44-position_offset+2.2,screw_hole_z])
       screw_hole_cylinder(screw_hole_height,2,1);

@@ -8,8 +8,13 @@ use <bottomshell.scad>
 
 
 //positions of silent switches for buttons
-include <microswitch-positions.scad>
+//include <microswitch-positions.scad>
 
+
+top_shell_offset = 12;
+switch_offset_x_directions = 20;
+switch_offset_distance = 15;
+switch_offset_x_attacks = 80;
 
 PCB_THICKNESS = 1.3;
 PCB_HEIGHT = 57.2;
@@ -59,11 +64,11 @@ translate([0.0,-support_platform_offset,-(PCB_THICKNESS+0.5)])
 
 
 // Top shell
-top_shell_offset = 12;
+
 //proper distance
-translate([top_shell_offset,0,6.0])
-//translate([top_shell_offset,0,70])
-    topshell(
+//translate([top_shell_offset,0,6.5])
+translate([top_shell_offset,0,70])
+#    topshell(
       button_hole_radius=BUTTON_HOLE_RADIUS,
       pcb_width=PCB_WIDTH,
       pcb_thickness=PCB_THICKNESS,
@@ -86,6 +91,7 @@ BUTTON_HEIGHT = 10;
 JUMP_BUTTON_POS = [switch_offset_x_directions+3, (2*switch_offset_distance)+5,9];
 SHOULDER1_BUTTON_POS = [switch_offset_x_attacks+12,2*switch_offset_distance+5,9];
 SHOULDER2_BUTTON_POS = [switch_offset_x_attacks+4,2*switch_offset_distance-5,9];
+
 
 translate(JUMP_BUTTON_POS)
   button(
@@ -143,6 +149,7 @@ B_HP_POS = [switch_offset_x_attacks+BUTTON_HOLE_RADIUS/2+0.57,-(0*switch_offset_
 B_LK_POS = [switch_offset_x_attacks+switch_offset_distance+BUTTON_HOLE_RADIUS/2+0.57,-(2*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+9.57,9];
 B_MK_POS = [switch_offset_x_attacks+switch_offset_distance+BUTTON_HOLE_RADIUS/2+0.57,-(1*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+9.57,9];
 B_HK_POS = [switch_offset_x_attacks+switch_offset_distance+BUTTON_HOLE_RADIUS/2+0.57,-(0*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+9.57,9];
+
 
 // bottom right button
 rotate([180,0,0])
@@ -210,10 +217,12 @@ translate(B_HK_POS)
     button_radius=BUTTON_HOLE_RADIUS-0.07
   );
 
+
+
 // Bottom shell
 rotate([180,0,0])
-  translate([top_shell_offset,-PCB_HEIGHT+33,6])
-//  translate([top_shell_offset,-PCB_HEIGHT+33,50])
+//  translate([top_shell_offset,-PCB_HEIGHT+33,6])
+  translate([top_shell_offset,-PCB_HEIGHT+33,50])
     bottomshell(
       button_hole_radius=BUTTON_HOLE_RADIUS,
       pcb_width=PCB_WIDTH,
@@ -235,3 +244,4 @@ rotate([180,0,0])
       mk_pos=B_MK_POS,
       hk_pos=B_HK_POS,
       position_offset=top_shell_offset);
+ 
