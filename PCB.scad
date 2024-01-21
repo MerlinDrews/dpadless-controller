@@ -14,7 +14,7 @@ module PCB (
     offset_position = [-19,-31,0];
     main_button_radius=3;
     select_button_size = [4.8,4.8,2];
-    color("Green") {
+//    color("Green") {
         union() {
             difference(){
                 rotate([0,0,1.5])
@@ -79,7 +79,25 @@ module PCB (
             // right lower button 
             translate([110,16,0])
                 cylinder(PCB_thickness+0.25, main_button_radius, main_button_radius);
+
+            color("teal") {
+            LED_X = 48;
+            // LED 1
+            translate([LED_X, 46, 1.5])
+              cube([0.8,1.6,0.2]);
+            
+            // LED 2
+            translate([LED_X+5, 46, 1.5])
+              cube([0.8,1.6,0.2]);
+            
+            // LED 3
+            translate([LED_X+10, 46, 1.5])
+              cube([0.8,1.6,0.2]);
                 
+            // LED 4
+            translate([LED_X+15, 46, 1.5])
+              cube([0.8,1.6,0.2]);
+            }
             // battery
 //            translate([35,36,-7.5])
             translate([35.8,28,-6.7])
@@ -104,7 +122,7 @@ module PCB (
               cube([7.5,6,3.7]);
 
             // rumble connector left
-            translate([6.3,30.5,-3.4])
+            translate([6.3,30.3,-3.4])
             rotate([0,0,-45])
               cube([7.5,4.3,3.4]);
 
@@ -117,7 +135,7 @@ module PCB (
 	   translate([78.7,35.1,-5])
 	   	cube([8.3,5.9,5]);
         }
-    }
+//    }
 
 }
 

@@ -39,8 +39,8 @@ module topshell(
 
   union() {
     difference() {
-#      union () {
-        shell(pcb_width, pcb_height, pcb_thickness);
+      union () {
+#        shell(pcb_width, pcb_height, pcb_thickness);
 
         button_housing_factor = 1.4;
         button_stopper_width_with_clearance = 3.2;
@@ -117,6 +117,24 @@ module topshell(
 
       translate([40,pcb_height+3,-8])
         cube([7,7,3]);
+
+      LED_X = 48;
+      // LED 1 hole
+      translate([LED_X-position_offset, 46, 1.5])
+        cube([0.8,1.6,20]);
+      
+      // LED 2 hole
+      translate([LED_X+5-position_offset, 46, 1.5])
+        cube([0.8,1.6,20]);
+      
+      // LED 3 hole
+      translate([LED_X+10-position_offset, 46, 1.5])
+        cube([0.8,1.6,20]);
+          
+      // LED 4 hole
+      translate([LED_X+15-position_offset, 46, 1.5])
+        cube([0.8,1.6,20]);
+
 
     }
 

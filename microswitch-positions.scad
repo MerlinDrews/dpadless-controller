@@ -4,48 +4,49 @@ switch_offset_x_attacks = 80;
 
 // Right button switch
 rotate([180,0,0])
-  translate([switch_offset_x_directions,-(2*switch_offset_distance),1.5])
+  translate([switch_offset_x_directions,-(2*switch_offset_distance)+9,1.5])
    silent_switch();
 
 // Down button switch
 rotate([180,0,0])
-  translate([switch_offset_x_directions,-(1*switch_offset_distance),1.5])
+  translate([switch_offset_x_directions,-(1*switch_offset_distance)+9,1.5])
     silent_switch();
 
 // Left button switch
 rotate([180,0,0])
-  translate([switch_offset_x_directions,-(0*switch_offset_distance),1.5])
+  translate([switch_offset_x_directions,-(0*switch_offset_distance)+9,1.5])
     silent_switch();
 
 // LP button switch
 rotate([180,0,0])
-  translate([switch_offset_x_attacks,-(2*switch_offset_distance),1.5]) silent_switch();
+  translate([switch_offset_x_attacks,-(2*switch_offset_distance)+9,1.5]) 
+    silent_switch();
 
 // MP button switch
 rotate([180,0,0])
-  translate([switch_offset_x_attacks,-(1*switch_offset_distance),1.5])
+  translate([switch_offset_x_attacks,-(1*switch_offset_distance)+9,1.5])
     silent_switch();
 
 // HP button switch
 rotate([180,0,0])
-  translate([switch_offset_x_attacks,-(0*switch_offset_distance),1.5])
+  translate([switch_offset_x_attacks,-(0*switch_offset_distance)+9,1.5])
     silent_switch();
 
 // LK button switch
 rotate([180,0,0])
-  translate([switch_offset_x_attacks+switch_offset_distance,-(2*switch_offset_distance),1.5])
+  translate([switch_offset_x_attacks+switch_offset_distance,-(2*switch_offset_distance)+9,1.5])
     silent_switch();
 
 
 // MK button switch
 rotate([180,0,0])
-  translate([switch_offset_x_attacks+switch_offset_distance,-(1*switch_offset_distance),1.5])
+  translate([switch_offset_x_attacks+switch_offset_distance,-(1*switch_offset_distance)+9,1.5])
     silent_switch();
 
 
 // HK button switch
 rotate([180,0,0])
-  translate([switch_offset_x_attacks+switch_offset_distance,-(0*switch_offset_distance),1.5])
+  translate([switch_offset_x_attacks+switch_offset_distance,-(0*switch_offset_distance)+9,1.5])
     silent_switch();
 
 

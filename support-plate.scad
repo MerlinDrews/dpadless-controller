@@ -54,10 +54,10 @@ module button_support_platform(
 
 // cable channel
  	translate([big_middle_hole.x+5,30,-2])
-#	cube([15,5,20]);
+	cube([15,5,20]);
        
  	translate([big_middle_hole.x-20,30,-2])
-#	cube([15,5,20]);
+	cube([15,5,20]);
   }
     
 }
