@@ -1,7 +1,6 @@
 module shell(
   pcb_width,
-  pcb_height,
-  pcb_thickness) {
+  pcb_height, pcb_thickness) {
       
   main_plate_height = pcb_height/3;
   width_overhang = 9;

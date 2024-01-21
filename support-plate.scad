@@ -26,11 +26,11 @@ module button_support_platform(
                   cylinder(pcb_thickness+1, small_hole_radius - clearance, small_hole_radius - clearance);
                   
           // up left addittion
-          translate([0,54,0])
+          translate([0,45,0])
               cube([pcb_width/4, pcb_height/4, pcb_thickness + 0.5]);
          
           // up right addition
-          translate([77.8,54,0])
+          translate([77.8,45,0])
               cube([pcb_width/3, pcb_height/4, pcb_thickness + 0.5]);
          
       }
@@ -53,11 +53,11 @@ module button_support_platform(
           cylinder(pcb_thickness + 5, big_hole_radius, big_hole_radius);
 
 // cable channel
- 	translate([big_middle_hole.x,30,0])
-#	cube([20,5,20]);
+ 	translate([big_middle_hole.x+5,30,-2])
+#	cube([15,5,20]);
        
- 	translate([big_middle_hole.x-20,30,0])
-#	cube([20,5,20]);
+ 	translate([big_middle_hole.x-20,30,-2])
+#	cube([15,5,20]);
   }
     
 }
@@ -68,6 +68,7 @@ module screw_hole_cylinder (height, outside_radius, wall_thickness) {
      
     difference(){
         cylinder(height, outside_radius, outside_radius);
+        
         translate([0,0,-1])
         cylinder(height + clearance_height, outside_radius - wall_thickness, outside_radius - wall_thickness);
     }

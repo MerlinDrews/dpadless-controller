@@ -25,7 +25,7 @@ SMALL_TOP_HOLE = [77.5+SMALL_HOLE_RADIUS, 53.2+SMALL_HOLE_RADIUS, -PCB_THICKNESS
 BIG_MIDDLE_HOLE = [53.5+BIG_HOLE_RADIUS, 15+BIG_HOLE_RADIUS, -PCB_THICKNESS*2];
 BIG_HOLE_LEFT = [3.5+BIG_HOLE_RADIUS, 4.9+BIG_HOLE_RADIUS, -PCB_THICKNESS*2];
 BIG_HOLE_RIGHT = [103.5+BIG_HOLE_RADIUS, 4.9+BIG_HOLE_RADIUS, -PCB_THICKNESS*2];
-START_BUTTON= [51+BUTTON_HOLE_RADIUS/2+0.07,22+BUTTON_HOLE_RADIUS/2+0.07,9];
+START_BUTTON= [52+BUTTON_HOLE_RADIUS/2+0.07,23+BUTTON_HOLE_RADIUS/2+0.07,9];
 SELECT_BUTTON_LEFT = [44+BUTTON_HOLE_RADIUS/2-0.07,8.4+BUTTON_HOLE_RADIUS/2-0.07,2];
 SELECT_BUTTON_RIGHT = [59+BUTTON_HOLE_RADIUS/2-0.07,8.4+BUTTON_HOLE_RADIUS/2-0.07,2];
 
@@ -61,8 +61,8 @@ translate([0.0,-support_platform_offset,-(PCB_THICKNESS+0.5)])
 // Top shell
 top_shell_offset = 12;
 //proper distance
-//translate([top_shell_offset,0,6.0])
-translate([top_shell_offset,0,70])
+translate([top_shell_offset,0,6.0])
+//translate([top_shell_offset,0,70])
     topshell(
       button_hole_radius=BUTTON_HOLE_RADIUS,
       pcb_width=PCB_WIDTH,
@@ -131,8 +131,8 @@ rotate([0,0,90])
 
 // Bottom shell
 rotate([180,0,0])
-//  translate([top_shell_offset,-PCB_HEIGHT+33,6])
-  translate([top_shell_offset,-PCB_HEIGHT+33,50])
+  translate([top_shell_offset,-PCB_HEIGHT+33,6])
+//  translate([top_shell_offset,-PCB_HEIGHT+33,50])
     bottomshell(
       button_hole_radius=BUTTON_HOLE_RADIUS,
       pcb_width=PCB_WIDTH,

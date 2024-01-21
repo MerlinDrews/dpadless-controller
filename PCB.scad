@@ -82,21 +82,36 @@ module PCB (
                 
             // battery
 //            translate([35,36,-7.5])
-	    translate([35.8,28,-6.7])
+            translate([35.8,28,-6.7])
                 cube([38.8,24,6.7]);
                 
             // usb connector  
             translate([52,52,-3])
                 cube([7.7,5.5,3]);
 
+            //reset button 
+            translate([26.9,38.5,-6.5])
+                cube([4.5,4.5,6.5]);
 
-	   translate([90,42,-3.7])
-	   	rotate([0,0,-33])
-	   	cube([7.5,6,3.7]);
+            //rumble connector right
+            translate([99.9,31.3,-3.4])
+            rotate([0,0,45])
+              cube([7.5,4.3,3.4]);
 
-	   translate([15,38,-3.7])
-	   	rotate([0,0,33])
-	   	cube([7.5,6,3.7]);
+            //shoulder button right
+            translate([90,42,-3.7])
+            rotate([0,0,-33])
+              cube([7.5,6,3.7]);
+
+            // rumble connector left
+            translate([6.3,30.5,-3.4])
+            rotate([0,0,-45])
+              cube([7.5,4.3,3.4]);
+
+            // shoulder button left
+            translate([15,38,-3.7])
+            rotate([0,0,33])
+              cube([7.5,6,3.7]);
 
 
 	   translate([78.7,35.1,-5])

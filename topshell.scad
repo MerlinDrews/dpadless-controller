@@ -74,8 +74,7 @@ module topshell(
           button_stopper_height,
           button_stopper_width_with_clearance);
 */
-        translate([start_button.x-position_offset, start_button.y, 2])
-        button_housing(
+        translate([start_button.x-position_offset, start_button.y, 2]) button_housing(
           button_hole_radius,
           button_housing_factor,
           button_stopper_height,
@@ -121,33 +120,33 @@ module topshell(
 
     }
 
-    screw_hole_z = -6;
-    screw_hole_height = 11;
+    screw_hole_z = -4.5;
+    screw_hole_height = 9.5;
     screw_hole_offset = 7;
 
-    translate([0-screw_hole_offset*2,0-screw_hole_offset*4.5,screw_hole_z])
-      screw_hole_cylinder(screw_hole_height,2.5,1.5);
+    translate([0-screw_hole_offset*2,0-screw_hole_offset*4.5,screw_hole_z-1.5])
+      screw_hole_cylinder(screw_hole_height+1.5,3.1,1.3);
 
-    translate([pcb_width-screw_hole_offset,0-screw_hole_offset*4.5,screw_hole_z])
-      screw_hole_cylinder(screw_hole_height,2.5,1.5);
+    translate([pcb_width-screw_hole_offset,0-screw_hole_offset*4.5,screw_hole_z-1.5])
+      screw_hole_cylinder(screw_hole_height+1.5,3.1,1.3);
 
-    translate([0-screw_hole_offset*2,pcb_height,screw_hole_z])
-      screw_hole_cylinder(screw_hole_height,2.5,1.5);
+    translate([0-screw_hole_offset*2,pcb_height,screw_hole_z-1.5])
+     screw_hole_cylinder(screw_hole_height+1.5,3.1,1.3);
 
-    translate([pcb_width-screw_hole_offset,pcb_height,screw_hole_z])
-      screw_hole_cylinder(screw_hole_height,2.5,1.5);
+    translate([pcb_width-screw_hole_offset,pcb_height,screw_hole_z-1.5])
+      screw_hole_cylinder(screw_hole_height+1.5,3.1,1.3);
 
     translate([big_hole_left.x-position_offset,big_hole_left.y,screw_hole_z])
-      screw_hole_cylinder(screw_hole_height,2.5,1.5);
+      screw_hole_cylinder(screw_hole_height,3.1,1.3);
 
     translate([big_middle_hole.x-position_offset,big_middle_hole.y,screw_hole_z])
-      screw_hole_cylinder(screw_hole_height,2.5,1.5);
+      screw_hole_cylinder(screw_hole_height,3.1,1.3);
 
     translate([big_hole_right.x-position_offset,big_hole_right.y,screw_hole_z])
-      screw_hole_cylinder(screw_hole_height,2.5,1.5);
+      screw_hole_cylinder(screw_hole_height,3.1,1.3);
 
-    translate([big_middle_hole.x-position_offset,-22+position_offset,screw_hole_z])
-      screw_hole_cylinder(screw_hole_height,2.5,1.5);
+    translate([big_middle_hole.x-position_offset,-22+position_offset,screw_hole_z-1.5])
+      screw_hole_cylinder(screw_hole_height+1.5,3.1,1.3);
 
   }
 }

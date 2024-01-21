@@ -26,13 +26,13 @@ module bottomshell(
       position_offset
 ){
   $fn = 60;
-  screw_hole_z = -10;
-  screw_hole_height = 15;
+  screw_hole_z = -6;
+  screw_hole_height = 9;
   screw_hole_offset = 7;
   union() {
     difference() {
       union () {
-        shell(pcb_width, pcb_height, pcb_thickness);
+#        shell(pcb_width, pcb_height, pcb_thickness);
 
         button_housing_factor = 1.4;
         button_stopper_width_with_clearance = 3.2;
@@ -100,9 +100,7 @@ module bottomshell(
           button_housing_factor,
           button_stopper_height,
           button_stopper_width_with_clearance);
-	
-	translate([20,-20,screw_hole_z])
-	cube([3,10,20]);
+
       }
 
       translate([right_pos.x-position_offset, -right_pos.y, 1.5])
@@ -139,57 +137,91 @@ module bottomshell(
       translate([-60,-80,-44])
         cube([200,200,40]);
 
+  screw_head_spacing_height = 100;
+  screw_head_spacing_diameter = 4;
 	translate([0-screw_hole_offset*2,0-screw_hole_offset*4.5,1.5])
-	cylinder(100,2,2); 
+  regular_cylinder(screw_head_spacing_height,screw_head_spacing_diameter); 
 
 	translate([pcb_width-screw_hole_offset,0-screw_hole_offset*4.5,1.5])
-	cylinder(100,2,2); 
+  regular_cylinder(screw_head_spacing_height,screw_head_spacing_diameter); 
 
 	translate([0-screw_hole_offset*2,pcb_height,1.5])
-	cylinder(100,2,2); 
+  regular_cylinder(screw_head_spacing_height,screw_head_spacing_diameter); 
 
 	translate([pcb_width-screw_hole_offset,pcb_height,1.5])
-	cylinder(100,2,2); 
+  regular_cylinder(screw_head_spacing_height,screw_head_spacing_diameter); 
 
 	translate([big_hole_left.x-position_offset,big_hole_left.y,1.5])
-	cylinder(100,2,2); 
+  regular_cylinder(screw_head_spacing_height,screw_head_spacing_diameter); 
 	
 	translate([big_middle_hole.x-position_offset,big_middle_hole.y-position_offset+2.2,1.5])
-#	cylinder(100,2,2); 
+  regular_cylinder(screw_head_spacing_height,screw_head_spacing_diameter); 
 	
 	translate([big_hole_right.x-position_offset,big_hole_right.y,1.5])
-	cylinder(100,2,2); 
+  regular_cylinder(screw_head_spacing_height,screw_head_spacing_diameter); 
 	
 	translate([big_middle_hole.x-position_offset,44-position_offset+2.2, 1.5])
-#	cylinder(100,2,2); 
+  regular_cylinder(screw_head_spacing_height,screw_head_spacing_diameter); 
     }
 
 
-    translate([0-screw_hole_offset*2,0-screw_hole_offset*4.5,screw_hole_z])
+color("teal")
+    translate([0-screw_hole_offset*2,0-screw_hole_offset*4.5-1.7,screw_hole_z])
       screw_hole_cylinder(screw_hole_height,2,1);
 
-    translate([pcb_width-screw_hole_offset,0-screw_hole_offset*4.5,screw_hole_z])
+    translate([pcb_width-screw_hole_offset,0-screw_hole_offset*4.5-1.7,screw_hole_z])
       screw_hole_cylinder(screw_hole_height,2,1);
 
-    translate([0-screw_hole_offset*2,pcb_height,screw_hole_z])
+    translate([0-screw_hole_offset*2,pcb_height-1.7,screw_hole_z])
       screw_hole_cylinder(screw_hole_height,2,1);
 
-    translate([pcb_width-screw_hole_offset,pcb_height,screw_hole_z])
+    translate([pcb_width-screw_hole_offset,pcb_height-1.7,screw_hole_z])
       screw_hole_cylinder(screw_hole_height,2,1);
 
-    translate([big_hole_left.x-position_offset,big_hole_left.y,screw_hole_z])
+    translate([big_hole_left.x-position_offset,big_hole_left.y+position_offset-1.7,screw_hole_z])
       screw_hole_cylinder(screw_hole_height,2,1);
 
     translate([big_middle_hole.x-position_offset,big_middle_hole.y-position_offset+2.2,screw_hole_z])
       screw_hole_cylinder(screw_hole_height,2,1);
 
-    translate([big_hole_right.x-position_offset,big_hole_right.y,screw_hole_z])
+    translate([big_hole_right.x-position_offset,big_hole_right.y+position_offset-1.7,screw_hole_z])
       screw_hole_cylinder(screw_hole_height,2,1);
 
     translate([big_middle_hole.x-position_offset,44-position_offset+2.2,screw_hole_z])
       screw_hole_cylinder(screw_hole_height,2,1);
 
+    //standoffs
+    //
+    // PCB standoff
+    standoff_height = 9;
+    standoff_z = -4;
+    color("purple"){
+    translate([28,-1.5,standoff_z-2])
+     cube([28,3,standoff_height+2]);
+    
+    translate([28,15.5,standoff_z])
+     cube([28,3,standoff_height]);
+    
+    translate([28,36,standoff_z])
+     cube([28,3,standoff_height]);
+    
+    translate([-10,36,standoff_z])
+     cube([20,3,standoff_height]);
+    
+    translate([80,36,standoff_z])
+     cube([20,3,standoff_height]);
+    
+    translate([100,-5,standoff_z])
+     cube([3,20,standoff_height]);
+    
+    translate([-10,-7,standoff_z])
+     cube([3,20,standoff_height]);
+     }
   }
+}
+
+module regular_cylinder(height, diameter) {
+    cylinder(height, diameter/2, diameter/2);
 }
 
 
