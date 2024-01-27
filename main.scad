@@ -33,7 +33,7 @@ BIG_HOLE_RIGHT = [103.5+BIG_HOLE_RADIUS, 4.9+BIG_HOLE_RADIUS, -PCB_THICKNESS*2];
 START_BUTTON= [52+BUTTON_HOLE_RADIUS/2+0.07,23+BUTTON_HOLE_RADIUS/2+0.07,9];
 SELECT_BUTTON_LEFT = [44+BUTTON_HOLE_RADIUS/2-0.07,8.4+BUTTON_HOLE_RADIUS/2-0.07,2];
 SELECT_BUTTON_RIGHT = [59+BUTTON_HOLE_RADIUS/2-0.07,8.4+BUTTON_HOLE_RADIUS/2-0.07,2];
-
+/*
 PCB(
     big_hole_radius=BIG_HOLE_RADIUS, 
     small_hole_radius=SMALL_HOLE_RADIUS, 
@@ -61,10 +61,10 @@ translate([0.0,-support_platform_offset,-(PCB_THICKNESS+0.5)])
         big_hole_right=BIG_HOLE_RIGHT,
         position_offset=support_platform_offset);
       
-
+*/
 
 // Top shell
-
+/*
 //proper distance
 //translate([top_shell_offset,0,6.5])
 translate([top_shell_offset,0,70])
@@ -85,14 +85,14 @@ translate([top_shell_offset,0,70])
       select_button_left=SELECT_BUTTON_LEFT,
       select_button_right=SELECT_BUTTON_RIGHT,
       position_offset=top_shell_offset);
-
+*/
 BUTTON_HEIGHT = 10;
 
 JUMP_BUTTON_POS = [switch_offset_x_directions+3, (2*switch_offset_distance)+5,9];
 SHOULDER1_BUTTON_POS = [switch_offset_x_attacks+12,2*switch_offset_distance+5,9];
 SHOULDER2_BUTTON_POS = [switch_offset_x_attacks+4,2*switch_offset_distance-5,9];
 
-
+/*
 translate(JUMP_BUTTON_POS)
   button(
     button_height=BUTTON_HEIGHT,
@@ -136,7 +136,7 @@ rotate([0,0,90])
     button_radius=BUTTON_HOLE_RADIUS-0.07,
     stopper_z=7
   );
-
+*/
 
 B_RIGHT_POS = [switch_offset_x_directions+BUTTON_HOLE_RADIUS/2+0.57,-(2*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+9.57,9];
 B_DOWN_POS = [switch_offset_x_directions+BUTTON_HOLE_RADIUS/2+0.57,-(1*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+9.57,9];
@@ -150,7 +150,7 @@ B_LK_POS = [switch_offset_x_attacks+switch_offset_distance+BUTTON_HOLE_RADIUS/2+
 B_MK_POS = [switch_offset_x_attacks+switch_offset_distance+BUTTON_HOLE_RADIUS/2+0.57,-(1*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+9.57,9];
 B_HK_POS = [switch_offset_x_attacks+switch_offset_distance+BUTTON_HOLE_RADIUS/2+0.57,-(0*switch_offset_distance)+BUTTON_HOLE_RADIUS/2+9.57,9];
 
-
+/*
 // bottom right button
 rotate([180,0,0])
 translate(B_RIGHT_POS)
@@ -216,7 +216,7 @@ translate(B_HK_POS)
     button_height=BUTTON_HEIGHT,
     button_radius=BUTTON_HOLE_RADIUS-0.07
   );
-
+*/
 
 
 // Bottom shell

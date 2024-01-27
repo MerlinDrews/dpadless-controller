@@ -15,6 +15,6 @@ module button_housing(
     cube([
       button_hole_radius*4,
       button_stopper_width_with_clearance,
-      button_stopper_height]);
+      button_stopper_height+0.1]);
   } 
 }
