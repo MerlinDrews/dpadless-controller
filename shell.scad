@@ -30,7 +30,23 @@ module shell(
       rounded_cylinder(cube_width, cube_height*cylinder_ratio);
     }
 
-    translate([
+    hull() {
+      translate([
+        -main_plate_height/2, 
+        -(main_plate_height+height_overhang)+1, 
+        -pcb_thickness-0.25])
+       rotate([-90,0,0])
+       rounded_cylinder(cube_width-3, (cube_height-9)*cylinder_ratio);
+
+      translate([
+        cube_height-main_plate_height/2, 
+        -(main_plate_height+height_overhang)+2,
+        -pcb_thickness-0.25])
+      rotate([-90,0,0])
+      rounded_cylinder(cube_width-3, (cube_height-9)*cylinder_ratio);
+    }
+
+    /*translate([
       -16,
       -(main_plate_height+height_overhang)+shell_strength/2-cube_height*cylinder_ratio+4,
       -(shell_thickness*2-shell_strength)])
@@ -38,7 +54,7 @@ module shell(
       cube_height*1.1-shell_strength+5,
       cube_width-shell_strength+cube_height*cylinder_ratio/2,
       shell_thickness*2]);
-        
+     */   
     translate([
       -cube_height*0.5,
       -cube_width,
